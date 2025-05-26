@@ -1,0 +1,13 @@
+from transformers import pipeline
+
+# Load pre-trained sentiment analysis pipeline
+classifier = pipeline("sentiment-analysis")
+
+def analyze_sentiment(text):
+    result = classifier(text)[0]
+    print(f"Text: {text}")
+    print(f"Sentiment: {result['label']} with {result['score']:.2f} confidence")
+
+# Example usage
+analyze_sentiment("I love Python and this project is amazing!")
+analyze_sentiment("I am not happy with this experience.")
